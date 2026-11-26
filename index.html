@@ -107,10 +107,6 @@ button{font:inherit;border:0;cursor:pointer}
 
 .sec{margin:26px 18px 0}
 .sec h3{font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
-.perks{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.perk{background:var(--bg-2);border:1px solid var(--line);border-radius:16px;padding:12px 8px;text-align:center}
-.perk div{font-size:22px}
-.perk p{font-size:11.5px;line-height:1.25;margin-top:6px;color:#d9dcf2}
 
 .chat{background:var(--bg-2);border:1px solid var(--line);border-radius:20px;padding:14px;min-height:92px}
 .msg{display:flex;gap:10px;align-items:flex-end;transition:opacity .3s,transform .3s}
@@ -178,11 +174,6 @@ button{font:inherit;border:0;cursor:pointer}
   <p class="safe">🔒 Pagamento seguro e discreto · acesso imediato</p>
 
   <section class="sec">
-    <h3>O que te espera</h3>
-    <div class="perks" id="perks"></div>
-  </section>
-
-  <section class="sec">
     <h3>Quem já assinou</h3>
     <div class="chat">
       <div class="msg" id="review">
@@ -218,8 +209,6 @@ var C = {
     { id: 'privacy', type: 'privacy', label: 'Privacy',   sub: 'Todos os meus conteúdos liberados', badge: 'PROMO', url: 'https://privacy.com.br/profile/luanahellcat' },
     { id: 'vip',     type: 'tg',      label: 'Telegram VIP', sub: 'Conteúdo exclusivo + chat comigo', badge: 'VIP', url: 'https://t.me/luanahellcatbot' }
   ],
-
-  perks: [['📸','Fotos e vídeos inéditos'],['🔥','Novidade toda semana'],['💬','Fala direto comigo']],
 
   reviews: [
     { n: 'Gustavo F.', t: 'há 3 min',  x: 'Muito melhor do que eu esperava 🔥' },
@@ -261,7 +250,6 @@ function build(){
   $('handle').textContent = C.handle;
   $('bio').textContent = C.bio;
   $('stats').innerHTML = C.stats.map(function(s){ return '<div><b>' + esc(s[0]) + '</b><span>' + esc(s[1]) + '</span></div>'; }).join('');
-  $('perks').innerHTML = C.perks.map(function(p){ return '<div class="perk"><div>' + p[0] + '</div><p>' + esc(p[1]) + '</p></div>'; }).join('');
 
   C.links.forEach(function(l){
     var a = document.createElement('a');
